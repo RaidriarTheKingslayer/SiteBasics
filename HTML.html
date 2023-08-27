@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Test 1</title>
+        <link rel="stylesheet" type="text/css" href="CSS.css">
+    </head>
+    <body>
+        <h2>To Do List</h2>
+        <form method="post" id="todo" onclick="addListItem()">
+            <input name="insert" id="testInsert" type="text" value="Enter a task…">
+            <input type="submit" value="Add">
+        </form>
+        <ul id="sampleList">
+            <li>Pay Bills</li>
+            <li>Meet Anna</li>
+            <li>Wash Dishes</li>
+        </ul>      
+    </body>
+
+    <script>
+        function addListItem() {
+            
+            event.preventDefault();
+
+            var li = document.createElement("li");
+ 
+            var inputValue = document.getElementById("testInsert").value;
+            
+            var t = document.createTextNode(inputValue);
+            
+            li.appendChild(t);
+            if (inputValue === '' || inputValue === "Enter a task…") {
+                alert("You must write something!");
+            } else {
+                document.getElementById("sampleList").appendChild(li);
+            }
+                document.getElementById("testInsert").value = "";
+            }
+    </script>
+</html>
+
+
